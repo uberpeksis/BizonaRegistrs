@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizonaRegistrs", "BizonaRegistrs\BizonaRegistrs.csproj", "{3A705721-EAFC-4503-BD7A-E09C074C40BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{B62E6A02-C2DD-4478-89D0-74F6543CED90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3A705721-EAFC-4503-BD7A-E09C074C40BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A705721-EAFC-4503-BD7A-E09C074C40BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A705721-EAFC-4503-BD7A-E09C074C40BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62E6A02-C2DD-4478-89D0-74F6543CED90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62E6A02-C2DD-4478-89D0-74F6543CED90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62E6A02-C2DD-4478-89D0-74F6543CED90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62E6A02-C2DD-4478-89D0-74F6543CED90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
