@@ -14,6 +14,7 @@ namespace Logic
         protected SqlCommand cmd;
         protected SqlDataAdapter adatper;
         protected DataSet data;
+        protected SqlDataReader reader;
 
         public BaseManeger()
         {

@@ -16,3 +16,5 @@ DELETE FROM Participants
 SELECT *
 FROM Participants
 
+SELECT * FROM Participants
+

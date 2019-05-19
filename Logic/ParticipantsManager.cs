@@ -12,7 +12,7 @@ namespace Logic
     {
         public void CreateNewParticipant(string parName, string parSurname, int parNumber, int parAge, int parRaceTime)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Participants(parName, parSurname, parNumber, parAgeGroup, parRaceTime, parPoints) VALUES(@p1, @p2, @p3, @p4, @p5, @p6)", conn);
+            cmd = new SqlCommand("INSERT INTO Participants(parName, parSurname, parNumber, parAgeGroup, parRaceTime, parPoints) VALUES(@p1, @p2, @p3, @p4, @p5, @p6)", conn);
 
             int parPoints = 1;
             cmd.Parameters.Add("@p1", SqlDbType.NVarChar).Value = parName;

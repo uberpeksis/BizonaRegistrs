@@ -1,0 +1,35 @@
+﻿@model BizonaRegistrs.Models.ParticipantsResultsModel
+@{
+    ViewBag.Title = "Rezultāti";
+}
+
+<h2>Rezultāti</h2>
+
+<br>
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Vārds</th>
+        <th>Uzvārds</th>
+        <th>Numurs</th>
+        <th>Vecuma grupa</th>
+        <th>Laiks</th>
+        <th>Punkti</th>
+    </tr>
+    @foreach (var data in Model.Participants)
+    {
+        <tr>
+            <td>@data.Id</td>
+            <td>@data.parName</td>
+            <td>@data.parSurname</td>
+            <td>@data.parNumber</td>
+            <td>@data.parAgeGroup</td>
+            <td>@data.parRaceTime</td>
+            <td>@data.parPoints</td>
+        </tr>
+    }
+
+
+    <tr></tr>
+</table>
