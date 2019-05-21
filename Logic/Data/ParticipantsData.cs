@@ -16,7 +16,7 @@ namespace Logic.Data
 
         public int parNumber { get; set; }
 
-        public int parAgeGroup { get; set; }
+        public string parAgeGroup { get; set; }
 
         public int parRaceTime { get; set; }
 

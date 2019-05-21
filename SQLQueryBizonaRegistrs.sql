@@ -12,9 +12,9 @@ INSERT INTO Participants(parName, parSurname, parNumber, parAgeGroup, parRaceTim
 VALUES('Jānis', 'Bērzs', 1, 'V 10', 150, 200)
 
 DELETE FROM Participants
+WHERE Id = 8
 
 SELECT *
 FROM Participants
 
-SELECT * FROM Participants
 

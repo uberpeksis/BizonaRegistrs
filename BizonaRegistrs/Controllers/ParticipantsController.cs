@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,7 +26,12 @@ namespace BizonaRegistrs.Controllers
         {
             if (ModelState.IsValid)
             {
-                manager.CreateNewParticipant(model.parName, model.parSurname, model.parNumber, model.parAge, model.parRaceTime);
+                AgeGroupManager ageGroupManager = new AgeGroupManager();
+                int parBirthYear = model.parBirthDate.Year;
+                string parAgeGroup = ageGroupManager.GetParAgeGroup(parBirthYear, model.parGender);
+
+                manager.CreateNewParticipant(model.parName, model.parSurname, model.parNumber, parAgeGroup, model.parRaceTime);
+
                 TempData["Success"] = "Dalībnieks un rezultāts ir reģistrēti!";
                 return RedirectToAction("Index");
             }
