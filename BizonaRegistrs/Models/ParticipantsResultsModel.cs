@@ -8,9 +8,10 @@ namespace BizonaRegistrs.Models
 {
     public class ParticipantsResultsModel
     {
-
         public List<ParticipantsData> Participants;
 
         public ParticipantsData ActiveParticipant;
+
+        public int perPlace { get; set; }
     }
 }

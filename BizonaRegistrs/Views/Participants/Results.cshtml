@@ -7,7 +7,7 @@
 
 <br>
 
-<table class="table table-striped">
+<table class="table table-hover table-striped">
     <tr>
         <th>#</th>
         <th>Vārds</th>
@@ -19,17 +19,14 @@
     </tr>
     @foreach (var data in Model.Participants)
     {
-    <tr>
-        <td>@data.Id</td>
-        <td>@data.parName</td>
-        <td>@data.parSurname</td>
-        <td>@data.parAgeGroup</td>
-        <td>@data.parNumber</td>
-        <td>@data.parRaceTime</td>
-        <td>@data.parPoints</td>
-    </tr>
+        <tr>
+            <td>@data.Id</td>
+            <td>@data.parName</td>
+            <td>@data.parSurname</td>
+            <td>@data.parAgeGroup</td>
+            <td>@data.parNumber</td>
+            <td>@data.parRaceTime</td>
+            <td>@data.parPoints</td>
+        </tr>
     }
-
-
-    <tr></tr>
 </table>

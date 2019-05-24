@@ -41,6 +41,7 @@ namespace BizonaRegistrs.Controllers
         public ActionResult Results()
         {
             ParticipantsResultsModel model = new ParticipantsResultsModel();
+            model.perPlace = 1;
             model.Participants = resultsManager.SelectAllParticipants();
 
             return View(model);

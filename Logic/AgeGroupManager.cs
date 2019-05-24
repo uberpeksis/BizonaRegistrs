@@ -10,7 +10,7 @@ namespace Logic
     {
         public string GetParAgeGroup(int parBirthYear, string parGender)
         {
-            string parAgeGroup = "Nav pareizi norādīts dzimums vai dzimšanas gards!";
+            string parAgeGroup = "Nav pareizi norādīts dzimums vai dzimšanas gads!";
 
             if (parGender == "Male")
             {
