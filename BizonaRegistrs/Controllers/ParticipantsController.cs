@@ -54,13 +54,13 @@ namespace BizonaRegistrs.Controllers
         {
             ParticipantsResultsModel model = new ParticipantsResultsModel();
             PointsManager pointsManager = new PointsManager();
-
             pointsManager.UpdateParPoints();
 
-            model.choice = "1";
+            AgeGroupManager ageGroupManager = new AgeGroupManager();
+            model.ageGroupList = ageGroupManager.GetAgeGroupList();
 
-            model.Participants1 = resultsManager.SelectAllParticipantsForStage1();
-
+            model.choice = "Sum";
+            model.Participants = resultsManager.SelectAllParticipants();
 
             return View(model);
         }
@@ -76,6 +76,9 @@ namespace BizonaRegistrs.Controllers
                 model.choice == "6" ||
                 model.choice == "7" ||
                 model.choice == "8") { RedirectToAction("Results"); }
+
+            AgeGroupManager ageGroupManager = new AgeGroupManager();
+            model.ageGroupList = ageGroupManager.GetAgeGroupList();
 
             model.Participants = resultsManager.SelectAllParticipants();
             model.Participants1 = resultsManager.SelectAllParticipantsForStage1();

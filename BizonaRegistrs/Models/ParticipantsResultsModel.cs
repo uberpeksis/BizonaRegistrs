@@ -29,7 +29,11 @@ namespace BizonaRegistrs.Models
 
         public ParticipantsData ActiveParticipant;
 
+        public List<string> ageGroupList;
+
         [Display(Name = "Izvēlies:")]
         public string choice { get; set; }
+
+        public int place { get; set; }
     }
 }

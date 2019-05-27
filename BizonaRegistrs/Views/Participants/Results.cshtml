@@ -29,7 +29,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10" padding="top:20px">
-            <input type="submit" class="btn btn-default" value="Apstipriāt" />
+            <input type="submit" class="btn btn-default" value="Apstiprināt" />
         </div>
     </div>
 
@@ -37,241 +37,332 @@
 
     if (Model.choice == "Sum")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>Punkti kopā</th>
-            </tr>
-            @foreach (var participant in Model.Participants)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parPointsSum</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>Punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parPointsSum</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
+
     else if (Model.choice == "1")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>1. posma laiks</th>
-                <th>1. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants1)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime1</td>
-                    <td>@participant.parPoints1</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>1. posma laiks</th>
+                    <th>1. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants1)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime1</td>
+                            <td>@participant.parPoints1</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "2")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>2. posma laiks</th>
-                <th>2. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants2)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime2</td>
-                    <td>@participant.parPoints2</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>2. posma laiks</th>
+                    <th>2. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants2)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime2</td>
+                            <td>@participant.parPoints2</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "3")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>3. posma laiks</th>
-                <th>3. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants3)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime3</td>
-                    <td>@participant.parPoints3</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>3. posma laiks</th>
+                    <th>3. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants3)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime3</td>
+                            <td>@participant.parPoints3</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "4")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>4. posma laiks</th>
-                <th>4. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants4)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime4</td>
-                    <td>@participant.parPoints4</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>4. posma laiks</th>
+                    <th>4. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants4)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime4</td>
+                            <td>@participant.parPoints4</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "5")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>5. posma laiks</th>
-                <th>5. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants5)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime5</td>
-                    <td>@participant.parPoints5</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>5. posma laiks</th>
+                    <th>5. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants5)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime5</td>
+                            <td>@participant.parPoints5</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "6")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>6. posma laiks</th>
-                <th>6. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants6)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime6</td>
-                    <td>@participant.parPoints6</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>6. posma laiks</th>
+                    <th>6. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants6)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime6</td>
+                            <td>@participant.parPoints6</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "7")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>7. posma laiks</th>
-                <th>7. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants7)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime7</td>
-                    <td>@participant.parPoints7</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>7. posma laiks</th>
+                    <th>7. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants7)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime7</td>
+                            <td>@participant.parPoints7</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 
     else if (Model.choice == "8")
     {
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>#</th>
-                <th>Vārds</th>
-                <th>Uzvārds</th>
-                <th>Vecuma grupa</th>
-                <th>Numurs</th>
-                <th>8. posma laiks</th>
-                <th>8. posma punkti</th>
-            </tr>
-            @foreach (var participant in Model.Participants8)
-            {
+        foreach (var ageGroup in Model.ageGroupList)
+        {
+            Model.place = 1;
+            <h4>Vecuma grupa: @ageGroup</h4>
+            <br>
+            <table class="table table-hover table-striped">
                 <tr>
-                    <td>@participant.Id</td>
-                    <td>@participant.parName</td>
-                    <td>@participant.parSurname</td>
-                    <td>@participant.parAgeGroup</td>
-                    <td>@participant.parNumber</td>
-                    <td>@participant.parRaceTime8</td>
-                    <td>@participant.parPoints8</td>
+                    <th>#</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Numurs</th>
+                    <th>8. posma laiks</th>
+                    <th>8. posma punkti</th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var participant in Model.Participants8)
+                {
+                    if (ageGroup.ToString() == participant.parAgeGroup)
+                    {
+                        <tr>
+                            <td>@Model.place</td>
+                            <td>@participant.parName</td>
+                            <td>@participant.parSurname</td>
+                            <td>@participant.parNumber</td>
+                            <td>@participant.parRaceTime8</td>
+                            <td>@participant.parPoints8</td>
+                        </tr>
+                        Model.place++;
+                    }
+                }
+
+            </table>
+        }
     }
 }

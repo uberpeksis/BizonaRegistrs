@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic
 {
-    public class AgeGroupManager
+    public class AgeGroupManager : BaseManeger
     {
         public string GetParAgeGroup(int parBirthYear, string parGender)
         {
@@ -63,6 +64,22 @@ namespace Logic
                 if (parBirthYear <= 1933) { parAgeGroup = "S 80"; }
             }
             return parAgeGroup;
+        }
+
+        public List<string> GetAgeGroupList()
+        {
+            cmd = new SqlCommand("SELECT DISTINCT parAgeGroup FROM Participants; ", conn);
+            reader = cmd.ExecuteReader();
+
+            List<string> result = new List<string>();
+            while (reader.Read())
+            {
+                string parAgeGroup = Convert.ToString(reader["parAgeGroup"]);
+                result.Add(parAgeGroup);
+            }
+            reader.Close();
+
+            return result;
         }
     }
 }

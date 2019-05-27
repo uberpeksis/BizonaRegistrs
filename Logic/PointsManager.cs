@@ -14,9 +14,10 @@ namespace Logic
         public void UpdateParPoints()
         {
             PointsManager pointsManager = new PointsManager();
-
+            AgeGroupManager ageGroupManager = new AgeGroupManager();
+            
             List<string> ageGroupList = new List<string>();
-            ageGroupList = pointsManager.GetAgeGroupList();
+            ageGroupList = ageGroupManager.GetAgeGroupList();
 
             foreach (string ageGroup in ageGroupList)
             {
@@ -72,22 +73,6 @@ namespace Logic
             if (stage == "parRaceTime8") { stagePointSlot = "parPoints8"; }
 
             return stagePointSlot;
-        }
-
-        public List<string> GetAgeGroupList()
-        {
-            cmd = new SqlCommand("SELECT DISTINCT parAgeGroup FROM Participants; ", conn);
-            reader = cmd.ExecuteReader();
-
-            List<string> result = new List<string>();
-            while (reader.Read())
-            {
-                string parAgeGroup = Convert.ToString(reader["parAgeGroup"]);
-                result.Add(parAgeGroup);
-            }
-            reader.Close();
-
-            return result;
         }
 
         public int GetStageAndAgeGroupWinnerTime(string stage, string parAgeGroup)
