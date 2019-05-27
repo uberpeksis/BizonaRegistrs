@@ -25,7 +25,13 @@
 
 UPDATE Participants SET parPointsSum = @p1 WHERE id = @p2
 
+SELECT * FROM Participants WHERE parAgeGroup = 'S 21' ORDER BY parRaceTime1
 
+SELECT *
+FROM Participants
+
+DELETE FROM Participants
+WHERE Id = 8
 
 SELECT * FROM Participants WHERE parAgeGroup = 'V 21'
 

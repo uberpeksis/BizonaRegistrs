@@ -44,7 +44,6 @@ namespace Logic
                         int parStageTime = pointsManager.GetParStageTime(participant.Id, stage);
                         double points = Convert.ToDouble(stageWinnerTime) / Convert.ToDouble(parStageTime) * 1000;
                         int pointsToUpload = Convert.ToInt32(points);
-
                         string stagePointSlot = pointsManager.GetStagePointSlot(stage);
 
                         string query = "UPDATE Participants SET "+ stagePointSlot +" = @p1 WHERE id = @p2";
@@ -56,7 +55,6 @@ namespace Logic
                     }
                 }
             }
-
             pointsManager.UpdateParSumPoints();
 
         }
