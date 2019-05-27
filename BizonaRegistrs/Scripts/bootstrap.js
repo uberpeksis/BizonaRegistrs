@@ -179,15 +179,6 @@ if (typeof jQuery === 'undefined') {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-$(function () {
-
-    $('#dateTimePicker').datetimepicker({
-        format: "DD/MM/YYYY hh:mm:ss A",
-        useSeconds: true
-    });
-
-});
-
 +function ($) {
   'use strict';
 

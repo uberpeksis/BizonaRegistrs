@@ -4,11 +4,45 @@
 	parSurname VARCHAR (50),
 	parNumber INT,
 	parAgeGroup VARCHAR (4),
-	parRaceTime INT,
-	parPoints INT
+	parRaceTime1 INT,
+	parRaceTime2 INT,
+	parRaceTime3 INT,
+	parRaceTime4 INT,
+	parRaceTime5 INT,
+	parRaceTime6 INT,
+	parRaceTime7 INT,
+	parRaceTime8 INT,
+	parPoints1 INT,
+	parPoints2 INT,
+	parPoints3 INT,
+	parPoints4 INT,
+	parPoints5 INT,
+	parPoints6 INT,
+	parPoints7 INT,
+	parPoints8 INT,
+	parPointsSum INT
 );
 
-INSERT INTO Participants(parName, parSurname, parNumber, parAgeGroup, parRaceTime, parPoints)
+
+SELECT * FROM Participants WHERE parAgeGroup = 'V 21'
+
+SELECT TOP 1 "parRaceTime1" FROM Participants WHERE parAgeGroup = 'V 21'
+
+SELECT * FROM Participants WHERE parAgeGroup = 'V 21'
+
+SELECT TOP 1 parRaceTime1 FROM Participants WHERE parAgeGroup = 'V 21' Order BY parRaceTime1
+
+SELECT *
+FROM Participants
+
+SELECT Id, parName, parSurname, parNumber, parAgeGroup, parRaceTime1, parPoints1
+FROM Participants Order by parPoints1 DESC
+
+SELECT parRaceTime1 
+FROM Participants 
+WHERE Id = 1 
+
+INSERT INTO Participants(parName, parSurname, parNumber, parAgeGroup, )
 VALUES('Jānis', 'Bērzs', 1, 'V 10', 150, 200)
 
 DELETE FROM Participants

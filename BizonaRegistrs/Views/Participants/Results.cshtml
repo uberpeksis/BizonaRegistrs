@@ -3,30 +3,275 @@
     ViewBag.Title = "Rezultāti";
 }
 
-<h2>Rezultāti</h2>
+@using (Html.BeginForm("Results", "Participants", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
 
-<br>
+    <h2>Rezultāti</h2>
 
-<table class="table table-hover table-striped">
-    <tr>
-        <th>#</th>
-        <th>Vārds</th>
-        <th>Uzvārds</th>
-        <th>Vecuma grupa</th>
-        <th>Numurs</th>
-        <th>Laiks</th>
-        <th>Punkti</th>
-    </tr>
-    @foreach (var data in Model.Participants)
+    <br>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.choice, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.choice, new List<SelectListItem>{
+                new SelectListItem{ Text="Kopvērtējums", Value="Sum"},
+                new SelectListItem{ Text="1. posms", Value="1"},
+                new SelectListItem{ Text="2. posms", Value="2"},
+                new SelectListItem{ Text="3. posms", Value="3"},
+                new SelectListItem{ Text="4. posms", Value="4"},
+                new SelectListItem{ Text="5. posms", Value="5"},
+                new SelectListItem{ Text="6. posms", Value="6"},
+                new SelectListItem{ Text="7. posms", Value="7"},
+                new SelectListItem{ Text="8. posms", Value="8"}
+            }, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" padding="top:20px">
+            <input type="submit" class="btn btn-default" value="Apstipriāt" />
+        </div>
+    </div>
+
+    <br>
+
+    if (Model.choice == "Sum")
     {
-        <tr>
-            <td>@data.Id</td>
-            <td>@data.parName</td>
-            <td>@data.parSurname</td>
-            <td>@data.parAgeGroup</td>
-            <td>@data.parNumber</td>
-            <td>@data.parRaceTime</td>
-            <td>@data.parPoints</td>
-        </tr>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>Punkti kopā</th>
+            </tr>
+            @foreach (var participant in Model.Participants)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parPointsSum</td>
+                </tr>
+            }
+        </table>
     }
-</table>
+    else if (Model.choice == "1")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>1. posma laiks</th>
+                <th>1. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants1)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime1</td>
+                    <td>@participant.parPoints1</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "2")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>2. posma laiks</th>
+                <th>2. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants2)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime2</td>
+                    <td>@participant.parPoints2</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "3")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>3. posma laiks</th>
+                <th>3. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants3)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime3</td>
+                    <td>@participant.parPoints3</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "4")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>4. posma laiks</th>
+                <th>4. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants4)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime4</td>
+                    <td>@participant.parPoints4</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "5")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>5. posma laiks</th>
+                <th>5. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants5)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime5</td>
+                    <td>@participant.parPoints5</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "6")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>6. posma laiks</th>
+                <th>6. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants6)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime6</td>
+                    <td>@participant.parPoints6</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "7")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>7. posma laiks</th>
+                <th>7. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants7)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime7</td>
+                    <td>@participant.parPoints7</td>
+                </tr>
+            }
+        </table>
+    }
+
+    else if (Model.choice == "8")
+    {
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Vecuma grupa</th>
+                <th>Numurs</th>
+                <th>8. posma laiks</th>
+                <th>8. posma punkti</th>
+            </tr>
+            @foreach (var participant in Model.Participants8)
+            {
+                <tr>
+                    <td>@participant.Id</td>
+                    <td>@participant.parName</td>
+                    <td>@participant.parSurname</td>
+                    <td>@participant.parAgeGroup</td>
+                    <td>@participant.parNumber</td>
+                    <td>@participant.parRaceTime8</td>
+                    <td>@participant.parPoints8</td>
+                </tr>
+            }
+        </table>
+    }
+}

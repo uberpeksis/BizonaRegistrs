@@ -45,6 +45,7 @@
     <Compile Include="BaseManeger.cs" />
     <Compile Include="Data\ParticipantsData.cs" />
     <Compile Include="ParticipantsManager.cs" />
+    <Compile Include="PointsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultsManager.cs" />
   </ItemGroup>
