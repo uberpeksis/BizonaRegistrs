@@ -23,6 +23,9 @@
 	parPointsSum INT
 );
 
+UPDATE Participants SET parPointsSum = @p1 WHERE id = @p2
+
+
 
 SELECT * FROM Participants WHERE parAgeGroup = 'V 21'
 

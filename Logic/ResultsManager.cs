@@ -27,6 +27,14 @@ namespace Logic
                 data.parSurname = Convert.ToString(reader["parSurname"]);
                 data.parNumber = Convert.ToInt32(reader["parNumber"]);
                 data.parAgeGroup = Convert.ToString(reader["parAgeGroup"]);
+                data.parPoints1 = Convert.ToInt32(reader["parPoints1"]);
+                data.parPoints2 = Convert.ToInt32(reader["parPoints2"]);
+                data.parPoints3 = Convert.ToInt32(reader["parPoints3"]);
+                data.parPoints4 = Convert.ToInt32(reader["parPoints4"]);
+                data.parPoints5 = Convert.ToInt32(reader["parPoints5"]);
+                data.parPoints6 = Convert.ToInt32(reader["parPoints6"]);
+                data.parPoints7 = Convert.ToInt32(reader["parPoints7"]);
+                data.parPoints8 = Convert.ToInt32(reader["parPoints8"]);
                 data.parPointsSum = Convert.ToInt32(reader["parPointsSum"]);
                 result.Add(data);
             }

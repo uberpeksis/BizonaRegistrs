@@ -50,12 +50,14 @@ namespace Logic
                         cmd = new SqlCommand(query, conn);
                         cmd.Parameters.Add("@p1", SqlDbType.Int).Value = pointsToUpload;
                         cmd.Parameters.Add("@p2", SqlDbType.Int).Value = participant.Id;
-                        //cmd.Parameters.Add("@p3", SqlDbType.VarChar).Value = stagePointSlot;
 
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
+
+            pointsManager.UpdateParSumPoints();
+
         }
 
         public string GetStagePointSlot(string stage)
@@ -129,10 +131,9 @@ namespace Logic
         {
             int parStageTime = 0;
 
-            cmd = new SqlCommand("SELECT * FROM Participants WHERE Id = @p2", conn);
+            cmd = new SqlCommand("SELECT * FROM Participants WHERE Id = @p1", conn);
 
-            //cmd.Parameters.Add("@p1", SqlDbType.VarChar).Value = stage;
-            cmd.Parameters.Add("@p2", SqlDbType.VarChar).Value = Id;
+            cmd.Parameters.Add("@p1", SqlDbType.VarChar).Value = Id;
 
             reader = cmd.ExecuteReader();
             reader.Read();
@@ -142,6 +143,31 @@ namespace Logic
             reader.Close();
 
             return parStageTime;
+        }
+
+        public void UpdateParSumPoints()
+        {
+            ResultsManager resultsManager = new ResultsManager();
+            List<ParticipantsData> participants = new List<ParticipantsData>();
+            participants = resultsManager.SelectAllParticipants();
+
+            foreach (var participant in participants)
+            {
+                int pointSumToUpload = participant.parPoints1 +
+                                       participant.parPoints2 +
+                                       participant.parPoints3 +
+                                       participant.parPoints4 +
+                                       participant.parPoints5 +
+                                       participant.parPoints6 +
+                                       participant.parPoints7 +
+                                       participant.parPoints8;
+
+                cmd = new SqlCommand("UPDATE Participants SET parPointsSum = @p1 WHERE id = @p2", conn);
+                cmd.Parameters.Add("@p1", SqlDbType.Int).Value = pointSumToUpload;
+                cmd.Parameters.Add("@p2", SqlDbType.Int).Value = participant.Id;
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
