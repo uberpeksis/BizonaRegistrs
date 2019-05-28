@@ -139,15 +139,6 @@ namespace Logic
 
             foreach (var participant in participants)
             {
-                int points2 = participant.parPoints1 +
-                                participant.parPoints2 +
-                                participant.parPoints3 +
-                                participant.parPoints4 +
-                                participant.parPoints5 +
-                                participant.parPoints6 +
-                                participant.parPoints7 +
-                                participant.parPoints8;
-
                 int[] pointArray = new int[] 
                 {
                                 participant.parPoints1,
