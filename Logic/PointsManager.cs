@@ -42,8 +42,12 @@ namespace Logic
                     foreach (var participant in participants)
                     {
                         int parStageTime = pointsManager.GetParStageTime(participant.Id, stage);
-                        double points = Convert.ToDouble(stageWinnerTime) / Convert.ToDouble(parStageTime) * 1000;
-                        int pointsToUpload = Convert.ToInt32(points);
+                        int pointsToUpload = 0;
+                        if (stageWinnerTime != 999999999)
+                        {
+                            double points = Convert.ToDouble(stageWinnerTime) / Convert.ToDouble(parStageTime) * 1000;
+                            pointsToUpload = Convert.ToInt32(points);
+                        }
                         string stagePointSlot = pointsManager.GetStagePointSlot(stage);
 
                         string query = "UPDATE Participants SET "+ stagePointSlot +" = @p1 WHERE id = @p2";
@@ -56,7 +60,6 @@ namespace Logic
                 }
             }
             pointsManager.UpdateParSumPoints();
-
         }
 
         public string GetStagePointSlot(string stage)
@@ -136,14 +139,38 @@ namespace Logic
 
             foreach (var participant in participants)
             {
-                int pointSumToUpload = participant.parPoints1 +
-                                       participant.parPoints2 +
-                                       participant.parPoints3 +
-                                       participant.parPoints4 +
-                                       participant.parPoints5 +
-                                       participant.parPoints6 +
-                                       participant.parPoints7 +
-                                       participant.parPoints8;
+                int points2 = participant.parPoints1 +
+                                participant.parPoints2 +
+                                participant.parPoints3 +
+                                participant.parPoints4 +
+                                participant.parPoints5 +
+                                participant.parPoints6 +
+                                participant.parPoints7 +
+                                participant.parPoints8;
+
+                int[] pointArray = new int[] 
+                {
+                                participant.parPoints1,
+                                participant.parPoints2,
+                                participant.parPoints3,
+                                participant.parPoints4,
+                                participant.parPoints5,
+                                participant.parPoints6,
+                                participant.parPoints7,
+                                participant.parPoints8
+                };
+
+                Array.Sort(pointArray);
+                Array.Reverse(pointArray);
+
+                int pointSumToUpload = 0;
+
+
+                for (int i = 0; i < 5; i++)
+                {
+
+                    pointSumToUpload += pointArray[i];
+                }
 
                 cmd = new SqlCommand("UPDATE Participants SET parPointsSum = @p1 WHERE id = @p2", conn);
                 cmd.Parameters.Add("@p1", SqlDbType.Int).Value = pointSumToUpload;
